@@ -1,0 +1,805 @@
+/* ****************** */
+/* **** COULEURS **** */
+:root{ 
+    --bleu-foncé : #2C6596;             /*form newsletter, titres...*/
+    --bleu-moyen : #5CB0E9 ;            /*liens, icônes*/
+    --bleu-moyen-transparent : rgba(92, 176, 233, 0.7);
+    --bleu-clair : #9CD3F2 ;            /*bordures encadrés bleus*/
+    --bleu-clair-transparent : rgba(156, 211, 242, 0.2); /*fond encadrés bleus*/
+    --bleu-fluo : #63D6FC;              /*liens survol*/
+    --bleu-fluo-transparent : rgba(99, 214, 252, 0.7) ; /*icônes RS*/
+    --gris-clair : gainsboro ;         /*bordures encadrés gris*/
+    --gris-moyen : gray ;           /*liens visités (sauf nav)*/
+}
+
+
+/* ****************** */
+/* **** KEYFRAMES **** */
+@keyframes entreeH1{			/* animation CHARGEMENT h1 */
+	0%{
+		transform: translateX(120%);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+
+@keyframes entreeP{			/* animation CHARGEMENT p sous h1 */
+	0%{
+		transform: translateY(300%);
+	}
+	100%{
+		transform: translateY(0);
+	}
+}
+
+@keyframes headshake{		/* animation SURVOL btn RS */
+	25%{
+		transform: translateY(4%);
+	}
+	75%{
+		transform: translateY(-4%);
+	}
+}
+
+
+/* ****************** */
+/* **** BODY **** */
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Open Sans', Verdana, Arial, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+}
+
+/* ****************** */
+/* **** LIENS **** */
+
+/*tous les liens au survol*/
+body a:hover{
+    color: var(--bleu-fluo);
+    text-decoration: underline;
+}
+
+/*liens main et footer*/
+main a,
+footer a{
+    color: var(--bleu-moyen);
+}
+
+main a:visited,
+footer a:visited{
+    color: var(--gris-moyen);
+}
+
+/*liens menu principal*/
+.menu a,
+.menu a visited{
+    margin : 0 20px 0 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+
+/* ****************** */
+/* **** ENCADRES, BORDURES, OMBRES **** */
+
+/*Ombres et border-radius*/
+.Accueil ul, 
+.Accueil div article, 
+.Accueil div img, 
+.Accueil form, 
+.Actualites div article, 
+.Programme article, 
+.InfoResa form, 
+.trouver form,
+.coordonnees{
+    box-shadow : 2px 2px 2px var(--gris-moyen);
+    margin-bottom : 80px;
+    border-radius : 10px;
+}
+
+/*Encadrés gris*/
+.Accueil div article, 
+.Actualites div article, 
+.Programme article, 
+.trouver form{
+    border: solid 1px var(--gris-clair);
+}
+
+/*Encadrés bleus*/
+footer,
+.Accueil ul, 
+.InfoResa form, 
+.coordonnees{
+    display:flex;
+    border: solid 1px var(--bleu-clair);
+    list-style-type: none;
+    line-height: 50px;
+    background-color: var(--bleu-clair-transparent);
+    color: var(--bleu-foncé);
+}
+
+/*Mise en page 4 infos d'accueil et 3 coordonnées de contact*/
+.Accueil ul li, 
+.coordonnees li{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    vertical-align: center;
+}
+
+.Accueil ul li{ 
+    padding: 80px 60px 60px 30px; 
+}
+
+.coordonnees li{
+    padding: 80px 60px 60px 10px;
+}   
+
+/*leurs polices de caractères*/
+.Accueil ul li em, 
+.Contact ul li em{
+    line-height: 20px;
+    font-size: medium;
+    font-style: normal;
+}
+
+/* ****************** */
+/* **** TITRES **** */
+h1{
+    font-size: 50px;
+    font-weight: 600;
+    animation: entreeH1 2000ms 100ms backwards;	/*animation chargement H1*/
+}
+
+h2{
+    height: 100px;
+    padding: 100px 0 0 0;
+    text-align: center;
+    font-family: Georgia, Cambria, Cochin, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-style: italic;
+    color: var(--bleu-foncé);
+}
+
+h3{
+    font-size: medium;
+}
+
+
+/* ****************** */
+/* **** FONT-SIZES **** */
+.Programme article header h3, 
+.InfoResa article h3, 
+.Contact p{
+    font-size: xx-large;
+}
+
+
+/**********************/
+/* **** DE HAUT EN BAS **** */
+
+/*BARRE DE NAVIGATION*/
+.menu{
+    display:flex;
+    position :sticky;
+    top : 0px;
+    padding: 10px 70px 10px 90px; /*logo = 60px*/
+    justify-content: space-between;
+    background-image: url("images/HERO.jpg");
+}
+
+/*menu de navigation*/
+.menu ul{
+    display:flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+/**********************/
+/*HERO = .header*/
+.header{
+    display: flex;
+    height: 650px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-image: url("images/HERO3.jpg");
+}
+
+/*Titre et slogan*/
+.header div{
+    margin: 50px 0 100px 50px;
+    text-align: center;
+    color:white;
+}
+
+.header p{
+    line-height: 25px;
+    font-size: larger;
+    animation: entreeP 3500ms 100ms backwards;	/*animation chargement p*/
+}
+
+/*Réseaux sociaux*/
+.header ul{
+    margin: 300px 100px 100px 200px;
+    list-style-type: none;
+    color:  var(--bleu-fluo-transparent);
+}
+
+.header i{
+    padding-bottom: 20px;
+}
+
+.header i:hover{	
+	animation: headshake 300ms 2;		/*animation btn RS*/
+}
+
+
+/**********************/
+/*PAGES*/
+main{
+    margin-top: -80px;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* PAGE D'ACCUEIL */
+/* Disparition du titre */
+.Accueil h2{
+    display: none;
+}
+
+/* 4 infos essentielles dans encadré bleu */
+.Accueil ul{
+    width: 80%;
+}
+
+.Accueil ul li{
+    width: 25%;
+    font-size: x-large;
+}
+
+/* Présentation du festival */
+.Accueil div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.Accueil div article{
+    width: 50%;
+    padding: 80px 120px 80px 100px;
+    line-height: 30px;
+}
+
+.Accueil div article em{
+    font-size: xx-large;
+}
+
+.Accueil div img{
+    margin-left: -80px;
+    width: 50%;
+    height: 330px;
+}
+
+/* Invitation Newsletter (formulaire) */
+.Accueil form{
+    width: 50% ;
+    padding: 30px;
+    text-align: center;
+    background-color: var(--bleu-foncé);
+    color: white;
+}
+
+.Accueil form input{
+    background-color: var(--bleu-fluo);
+}
+
+
+/*PAGE D'ACTUALITES*/
+.Actualites div{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.Actualites div article{
+    width: 32%;
+    height: fit-content;
+    padding: 20px;
+    text-align: center;
+}
+
+.Actualites div article h3,
+.Actualites div article p{
+    text-align: justify;
+}
+
+.Actualites div article img{
+    width: 100%;
+    height: 40%;
+}
+
+.Actualites div nav{
+    width: 20%;
+}
+
+
+/*PAGE PROGRAMME*/
+.Programme article{
+    width: 85%;
+    height: 20%;
+    padding:20px 60px 40px 60px;
+}
+
+.Programme article header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.Programme article div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.Programme article div img{
+    margin-right: 20px;
+    width: 120px;
+    height: 160px;
+}
+
+
+/*PAGE INFOS RESA*/
+
+/* Padding et justifié */
+.infos div, 
+.InfoResa a, 
+.InfoResa form{
+    padding: 20px;
+    text-align: justify;
+}
+
+/*Informations sur le film*/
+.InfoResa article{
+    margin: -40px 40px 40px 40px;
+    padding: 20px;
+}
+
+.infos{
+    display: flex;
+    align-items: center;
+}
+
+/*Lien de retour au programme*/
+.InfoResa a{
+    margin-bottom: 30px;
+}
+
+/*Formulaire de réservation*/
+.InfoResa form{
+    flex-direction: column;
+    line-height: normal;
+    font-size: medium;
+}
+
+.InfoResa form em{
+    text-align: center;
+    line-height: 50px;
+    font-style: normal;
+    font-size: large;
+    font-weight: bold;
+}
+
+.InfoResa form fieldset{
+    display: flex;
+    justify-content: space-between ;
+    border: none;
+}
+
+.InfoResa form fieldset textarea{
+    width: 70%;
+}
+
+
+/*PAGE CONTACT*/
+.coordonnees li{
+    width: 30%;
+}
+
+.trouver{
+    display: flex;
+    margin-bottom: 100px;
+    list-style-type: none;
+}
+
+.trouver li{
+    width: 50%;
+}
+
+.trouver li img{
+    width: 95%;
+    height: 300px;
+}
+
+.trouver li form{
+    margin: 0 40px 0 30px;
+    text-align: center;
+    line-height: 30px;
+    padding: 35px 0 35px 0;
+}
+
+.trouver form fieldset{
+    border: none;
+}
+
+
+/**********************/
+/* FOOTER */
+footer{
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px 0 50px;
+}
+
+
+
+
+
+/* ******************************* ************************************** */
+/* RESPONSIVE */
+
+/* Medium : tablettes */
+@media all and (max-width: 1024px)
+{
+    /*Décaler les icônes et titres vers la gauche*/
+    .header div{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header ul{
+        margin-left: 70px;
+    }
+
+    h1, h2{
+        font-size: 40px;
+    }
+
+   /*Afficher verticalement les flex-box*/
+   footer,
+   .Accueil ul, 
+   .Actualites div, 
+   .Contact ul,
+   .InfoResa form .fieldset{
+        flex-direction: column; 		
+    }
+
+    /*Réajuster les largeurs */
+    .Accueil div,
+    .Accueil ul li,
+    .Actualites div article, 
+    .Actualites div nav, 
+    .trouver li{
+        width: 85%;
+    }
+
+    .Programme article{
+        width: 70%;
+    }
+
+    .InfoResa form .fieldset textarea{
+        width: 98%;
+    }
+
+
+    /*Réajuster les marges */
+    .Actualites div article,
+    .Actualites div nav{
+        margin-left: 25px;
+    }
+
+    .coordonnees li{
+        padding-bottom: 0px;
+        width: 70%;
+    }
+
+    .Accueil ul, 
+    .coordonnees{
+        padding-bottom: 60px;
+    }
+
+    .Accueil ul{
+        padding-top: 70px;
+    }
+
+    .Accueil ul li{
+        padding: 15px 0 0 40px;
+    }
+
+    footer{
+        line-height: normal;
+        padding-top: 20px;
+    }
+
+    .InfoResa form fieldset input, 
+    .InfoResa form fieldset select{
+        margin: 5px;
+     }
+    
+    .Accueil form{
+        width: 80%;
+    }
+
+    .Actualites div article img{
+       width: 70%;
+    }
+
+    /*Réajuster les placements */
+    .coordonnees{
+        width: 60%;
+        align-items: center;
+    }
+    
+    .InfoResa article h3{
+        text-align: center;
+    }
+
+    .InfoResa form .sous-fieldset{
+        justify-content: flex-start;
+    }
+
+    /*Faire disparaître l'image d'article d'accueil*/
+    .Accueil div img{
+        display: none;
+    }
+
+    .Actualites div article img{
+        height: 300px;
+    }
+
+    .InfoResa article div img{
+        height: 300px;
+    }
+
+    /*Recentrer et séparer map et formulaire de contact*/
+    .trouver{
+        align-items: center;
+    }
+
+    .trouver li{
+        margin: 50px 0 50px 0;
+    }
+}
+
+/* Small : grands smartphones */                   
+@media all and (max-width: 768px){
+    
+    .menu{
+        justify-content: space-around;
+        align-items: center;
+        padding: 13px 0 0 0;
+    }
+
+    .menu ul{
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 13px;
+        font-weight: bold;
+    }
+ 
+    .header{
+        height: 450px;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 50px 5px 5px 5px;
+    }
+
+    .header div{
+        margin: 0 15 100 15;
+    }
+
+    .header ul{  
+        display: flex;   
+        margin: 0;       
+        margin-right: 30px;
+    }
+
+    .header i{
+        padding: 0 5px 10px 5px;
+    }
+
+    h1, h2{
+        font-size: 32px;
+    }
+
+    h2{
+        padding-top: 150px;
+        margin: 0 10px -30px 10px;
+    }
+
+    /*Font-sizes*/
+    .Programme article header h3, 
+    .InfoResa article h3{
+        font-size: larger;
+    }
+
+
+    .menu img{
+        margin: 0 0 10px 0;
+    }
+
+    .header p{
+        font-size: 18px;
+    }
+
+    .Accueil div{
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .Accueil div article{
+        width: 85%;
+        padding: 20px 30px 20px 30px;
+        line-height: 20px;
+        font-size:small;
+    }    
+    .Accueil div article em{
+        font-size: large;  
+        line-height: 30px;  
+    }    
+
+    .Accueil ul li{
+        padding-left: 10px;
+        font-size: large;
+    }
+
+    .Accueil form{
+        width: 70%;
+    }
+    
+    .Programme header,
+    .Programme div,
+    .InfoResa article div{
+        flex-direction: column;
+    }
+
+    /*Font-sizes*/
+    .Actualites div,
+    .Actualites nav,
+    .Programme article div,
+    .InfoResa article div,
+    .InfoResa form fieldset,
+    footer{
+        font-size: small;
+    }
+
+    /*Images*/
+    .Actualites div article img{        
+        height: 200px;
+    }
+
+    .trouver img{
+        margin-left: 0;
+    }
+    
+    .Accueil ul, 
+    .Accueil div article, 
+    .Accueil div img, 
+    .Accueil form, 
+    .Actualites div article, 
+    .Programme article, 
+    .InfoResa form, 
+    .trouver form,
+    .coordonnees{
+        margin-bottom : 40px;
+    }
+
+}
+
+
+
+/* XSmall : petits smartphones */                   
+@media all and (max-width: 532px){
+
+    /* font-sizes */
+    h1, h2{
+        font-size: 26px;
+    }
+
+    .Accueil form p,
+    .Accueil form h3,
+    .Accueil ul li em{
+        font-size: small;
+    }
+
+    /*Accueil*/
+    .Accueil ul li{
+        padding-left: 0;
+        padding-bottom: 0px;
+    }
+
+    /*Programme / liste films*/
+    .Programme article{
+        padding: 10px 30px 20px 30px;
+    }
+
+    .Programme article div{
+        line-height: normal;
+    }    
+
+    /*Actualites / Blog*/
+    .Actualites div article{
+        margin-left: 10px;
+    }
+
+    .Actualites div article img{        
+        height: 150px;
+    }
+
+    /*Plus sur un film et résa*/
+    .InfoResa article{
+        padding: 0;
+        margin: -15px 15px 15px 15px;
+    }
+
+    .InfoResa article div img{
+        height: 200px;
+    }
+
+    .InfoResa form{
+        width: 90%;
+        padding: 5px;
+    }
+
+    /* Page contact */
+    .Contact ul li,
+    .Contact ul li em{
+        font-size: small;
+    }
+
+    .coordonnees{
+        margin-bottom: 0;
+        width: 85%;
+        padding: 20px 5px 20px 5px;
+    }
+    .coordonnees li{
+        padding: 5px 5px 5px 0;
+    }
+
+    
+   .trouver{
+        margin-bottom: 30px;
+        margin-left: -20px;
+    }
+
+    .trouver li{
+       margin: 20px 0 20px 0;
+       width: 90%;
+    }
+
+   .trouver li img{
+        height: 200px;
+    }
+
+   .trouver li form{
+        margin: 0 0 0 -20px;
+        padding: 15px 0 15px 0;
+    }
+}
